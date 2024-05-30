@@ -10,12 +10,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="fadeInFooter()">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="ASSETS/logo.png" alt="Carnes CDP" style="height: 40px; margin-right: 10px;">
-            <!-- Logo en la navbar -->
+            <img src="ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+                style="height: 40px; margin-right: 10px;"> <!-- Logo en la navbar -->
             Carnes CDP
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -36,44 +36,50 @@
 
     <!-- Hero Section -->
     <div class="jumbotron text-center">
-        <img src="ASSETS/logo.png" alt="Carnes CDP" style="height: 100px; margin-bottom: 20px;">
-        <!-- Logo en la sección hero -->
+        <img src="ASSETS/logo.png" alt="Carnes CDP" class="hero-logo"> <!-- Logo en la sección hero -->
         <h1 class="display-4">Bienvenidos a Carnes CDP</h1>
         <p class="lead">Las mejores carnes al mejor precio.</p>
         <hr class="my-4">
         <p>Explora nuestras ofertas y productos frescos.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Ver Productos</a>
+        <a class="btn btn-primary btn-lg pulse-on-hover" href="#" role="button">Ver Productos</a>
     </div>
 
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="ASSETS/carne1.jpg" class="card-img-top" alt="Producto 1">
+                <div class="card lift-on-hover">
+                    <img src="ASSETS/Lomo vetado porcionado.png" class="card-img-top" alt="Producto 1">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 1</h5>
-                        <p class="card-text">Descripción breve del producto 1.</p>
+                        <h5 class="card-title">Bife de lomo vetado</h5>
+                        <p class="card-text">Experimenta la comodidad y exquisitez con nuestro Lomo Vetado Porcionado.
+                            Con terneza incomparable y veteado de grasa, este corte ofrece practicidad y versatilidad
+                            gourmet en cada porción.</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="ASSETS/carne2.jpg" class="card-img-top" alt="Producto 2">
+                <div class="card lift-on-hover">
+                    <img src="ASSETS/filete en medallon.png" class="card-img-top" alt="Producto 2">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 2</h5>
-                        <p class="card-text">Descripción breve del producto 2.</p>
+                        <h5 class="card-title">Filete en medallón</h5>
+                        <p class="card-text">Descubre la joya culinaria de nuestro Filete en Medallón, extraído del
+                            centro del filete sin el cordón ni la oreja.Este medallón es perfecto para elevar tus
+                            comidas diarias o sorprender en ocasiones
+                            especiales.</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="ASSETS/carne3.jpg" class="card-img-top" alt="Producto 3">
+                <div class="card lift-on-hover">
+                    <img src="ASSETS/Entrecot.png" class="card-img-top" alt="Producto 3">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 3</h5>
-                        <p class="card-text">Descripción breve del producto 3.</p>
+                        <h5 class="card-title">Entrecott</h5>
+                        <p class="card-text">Descubre la excelencia de nuestro Entrecot, un corte premium que ofrece
+                            marmoleado exquisito, infiltración de grasa y una experiencia culinaria inigualable.
+                            ¡Perfecto para parrillas y asados!</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
@@ -82,7 +88,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start" id="footer">
         <div class="container p-4">
             <div class="row">
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -105,6 +111,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="JS/scripts.js"></script>
 </body>
 
 </html>
