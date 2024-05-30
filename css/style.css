@@ -49,7 +49,7 @@ a {
     padding: 6rem 2rem;
     text-align: center;
     position: relative;
-    margin-top: 70px;
+    margin-top: 2px;
     /* Altura de la navbar + algo de espacio adicional */
     margin-bottom: 0;
     /* Eliminamos el margen inferior */
@@ -94,6 +94,12 @@ a {
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
@@ -104,13 +110,20 @@ a {
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    /* Aumentamos el tamaño de la fuente */
     color: #333;
 }
 
 .card-text {
     font-size: 1rem;
     color: #666;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    font-weight: bold;
 }
 
 .btn-primary {
