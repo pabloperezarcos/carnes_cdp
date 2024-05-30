@@ -1,0 +1,139 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #800000;
+    /* Color burdeos */
+}
+
+.navbar {
+    background-color: #fff;
+    /* Fondo blanco para la barra de navegación */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: none;
+    /* Eliminamos la sombra */
+    border-bottom: 2px solid #333;
+    /* Línea inferior para mayor separación */
+    margin-bottom: 0;
+    /* Eliminamos el margen */
+}
+
+.navbar-brand,
+.nav-link {
+    color: #800000 !important;
+    /* Color burdeos para el texto */
+    font-weight: bold;
+    /* Texto en negrita */
+}
+
+.navbar-toggler-icon {
+    color: #800000;
+}
+
+.jumbotron {
+    background: url('../assets/presentacion.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    margin-top: 70px;
+    /* Altura de la navbar + algo de espacio adicional */
+    margin-bottom: 0;
+    /* Eliminamos el margen inferior */
+}
+
+.jumbotron::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semi-transparente */
+}
+
+.jumbotron h1,
+.jumbotron p {
+    position: relative;
+    z-index: 1;
+    color: white;
+    /* Aseguramos que el texto sea blanco */
+}
+
+.jumbotron .btn-primary {
+    background-color: #ff6b6b;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+.btn-primary {
+    background-color: #ff6b6b;
+    border: none;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer h5 {
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 4rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .jumbotron {
+        padding: 3rem 1rem;
+    }
+}
