@@ -1,0 +1,18 @@
+/* recuperar_contraseña.css */
+
+.form-group {
+    transition: transform 0.3s ease-in-out;
+}
+
+.form-group:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}

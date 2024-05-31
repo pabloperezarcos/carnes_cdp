@@ -69,3 +69,43 @@ function validateLoginForm() {
     return true;
 }
 
+// validations.js
+
+function validateLoginForm() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (email === "" || password === "") {
+        alert("Por favor, complete todos los campos.");
+        return false;
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
+        return false;
+    }
+
+    alert("Inicio de sesión exitoso!");
+    return true;
+}
+
+function validateRecuperarContraseñaForm() {
+    const email = document.getElementById('email').value.trim();
+
+    if (email === "") {
+        alert("Por favor, ingrese su correo electrónico.");
+        return false;
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
+        return false;
+    }
+
+    alert("Instrucciones para recuperar la contraseña han sido enviadas a su correo electrónico.");
+    return true;
+}
+
+
