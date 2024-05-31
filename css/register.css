@@ -1,0 +1,30 @@
+/* register.css */
+
+.form-group {
+    transition: transform 0.3s ease-in-out;
+}
+
+.form-group:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+.container .text-center .secretaria-img {
+    max-width: 300px;
+    /* Ajusta el tamaño máximo de la imagen a 100 píxeles */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container .text-center .secretaria-img:hover {
+    transform: scale(1.1);
+}

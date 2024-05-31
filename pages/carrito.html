@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filete en medallón - Carnes CDP</title>
-    <link rel="icon" href="../../ASSETS/logo.png" type="image/png">
-    <link rel="stylesheet" href="../../CSS/style.css">
-    <link rel="stylesheet" href="../../CSS/footer.css">
+    <title>Carrito de Compras - Carnes CDP</title>
+    <link rel="icon" href="../ASSETS/logo.png" type="image/png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/carrito.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">
-            <img src="../../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+        <a class="navbar-brand" href="../index.html">
+            <img src="../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
                 style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
@@ -26,15 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../login.html">Iniciar Sesión</a>
+                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../register.html">Registrarse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/carrito.html">
-                        <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
-                    </a>
+                    <a class="nav-link" href="register.html">Registrarse</a>
                 </li>
             </ul>
         </div>
@@ -42,8 +38,8 @@
 
     <!-- Hero Section -->
     <div class="jumbotron text-center">
-        <h1 class="display-4">Filete en medallón</h1>
-        <p class="lead">Descubre la joya culinaria de nuestro Filete en Medallón.</p>
+        <h1 class="display-4">Carrito de Compras</h1>
+        <p class="lead">Revisa tus productos antes de proceder al pago.</p>
     </div>
 
     <!-- Breadcrumbs -->
@@ -51,23 +47,28 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
             <li class="breadcrumb-item"><a href="/pages/productos.html">Productos</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Filete en medallón</li>
+            <li class="breadcrumb-item active" aria-current="page">Carrito de compras</li>
         </ol>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Carrito de Compras -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
-                <img src="../../assets/productos/filete en medallon.png" class="img-fluid" alt="Filete en medallón">
+            <div class="col-md-8">
+                <h3>Tu Carrito</h3>
+                <div id="cart-items" class="list-group">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
             </div>
-            <div class="col-lg-6 col-md-12 mb-4">
-                <h2>Filete en medallón</h2>
-                <p>Descubre la joya culinaria de nuestro Filete en Medallón, extraído del centro del filete sin el
-                    cordón ni la oreja. Este medallón es perfecto para elevar tus comidas diarias o sorprender en
-                    ocasiones especiales.</p>
-                <p class="price">$17.490 / 1 kilo</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+            <div class="col-md-4">
+                <h3>Resumen de la Compra</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total:</h5>
+                        <p class="card-text" id="cart-total">$0</p>
+                        <button class="btn btn-primary btn-block" id="checkout-btn">Proceder al Pago</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -78,8 +79,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../JS/scripts.js"></script>
-    <script src="../../JS/loadFooter.js"></script>
+    <script src="../JS/scripts.js"></script>
+    <script src="../JS/loadfooter.js"></script>
+    <script src="../JS/carrito.js"></script>
 </body>
 
 </html>
