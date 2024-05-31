@@ -1,0 +1,10 @@
+/* footer.css */
+.footer-logo {
+    height: 100px;
+    /* Aumentamos el tamaño del logo */
+    transition: transform 0.5s ease-in-out;
+}
+
+.footer-logo.rotate-on-hover:hover {
+    transform: rotate(360deg);
+}

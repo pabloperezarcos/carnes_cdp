@@ -1,0 +1,33 @@
+/* Badge Styles */
+.badge-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.badge {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.badge-sale {
+    background: #ff6b6b;
+    /* Color para OFERTA */
+}
+
+.badge-soldout {
+    background: #333;
+    /* Color para AGOTADO */
+}
