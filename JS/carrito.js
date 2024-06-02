@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const cartTotal = document.getElementById('cart-total');
     const cartItemsContainer = document.getElementById('cart-items');
@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <h5>${item.name}</h5>
-                        <p>${formatCurrency(item.price)} x ${item.quantity}</p>
+                        <p>${formatCurrency(item.price)} x 
+                        <input type="number" value="${item.quantity}" min="1" class="form-control quantity-input" data-index="${index}">
+                        </p>
                     </div>
                     <div>
                         <button class="btn btn-sm btn-danger" onclick="removeCartItem(${index})">Eliminar</button>
@@ -42,7 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.removeCartItem = removeCartItem;
 
-    checkoutBtn.addEventListener('click', function() {
+    cartItemsContainer.addEventListener('change', function (e) {
+        if (e.target.classList.contains('quantity-input')) {
+            const index = e.target.getAttribute('data-index');
+            const newQuantity = parseInt(e.target.value);
+            cartItems[index].quantity = newQuantity;
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            renderCartItems();
+            updateCartTotal();
+        }
+    });
+
+    checkoutBtn.addEventListener('click', function () {
         alert('Procediendo al pago...');
     });
 
