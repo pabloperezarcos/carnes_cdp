@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bife de lomo vetado - Carnes CDP</title>
-    <link rel="icon" href="../../ASSETS/logo.png" type="image/png">
-    <link rel="stylesheet" href="../../CSS/style.css">
-    <link rel="stylesheet" href="../../CSS/footer.css">
+    <title>Bife de Lomo Vetado - Carnes CDP</title>
+    <link rel="icon" href="/assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">
-            <img src="../../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+        <a class="navbar-brand" href="/index.html">
+            <img src="/assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
                 style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
@@ -26,10 +26,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../login.html">Iniciar Sesión</a>
+                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../register.html">Registrarse</a>
+                    <a class="nav-link" href="register.html">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/carrito.html">
+                        <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
+                    </a>
                 </li>
             </ul>
         </div>
@@ -37,23 +42,36 @@
 
     <!-- Hero Section -->
     <div class="jumbotron text-center">
-        <h1 class="display-4">Bife de lomo vetado</h1>
+        <h1 class="display-4">Bife de Lomo Vetado</h1>
         <p class="lead">Experimenta la comodidad y exquisitez con nuestro Lomo Vetado Porcionado.</p>
     </div>
 
-    <!-- Main Content -->
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/pages/productos.html">Productos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bife de Lomo Vetado</li>
+        </ol>
+    </nav>
+
+    <!-- Detalle del Producto -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
-                <img src="../../assets/productos/Lomo vetado porcionado.png" class="img-fluid"
-                    alt="Bife de lomo vetado">
+            <div class="col-md-6">
+                <img src="/assets/productos/Lomo vetado porcionado.png" class="img-fluid" alt="Bife de Lomo Vetado">
             </div>
-            <div class="col-lg-6 col-md-12 mb-4">
-                <h2>Bife de lomo vetado</h2>
+            <div class="col-md-6">
+                <h2>Bife de Lomo Vetado</h2>
+                <p>SKU: VA001523</p>
+                <p>Precio: <span id="product-price">$12.480</span> / 1 kilo</p>
                 <p>Experimenta la comodidad y exquisitez con nuestro Lomo Vetado Porcionado. Con terneza incomparable y
                     veteado de grasa, este corte ofrece practicidad y versatilidad gourmet en cada porción.</p>
-                <p class="price">$12.480 / 1 kilo</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <div class="form-group">
+                    <label for="quantity">Cantidad:</label>
+                    <input type="number" id="quantity" class="form-control" value="1" min="1">
+                </div>
+                <button class="btn btn-primary" id="add-to-cart-btn">Agregar al Carrito</button>
             </div>
         </div>
     </div>
@@ -64,8 +82,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../JS/scripts.js"></script>
-    <script src="../../JS/loadfooter.js"></script>
+    <script src="/JS/scripts.js"></script>
+    <script src="/JS/loadfooter.js"></script>
+    <script src="/JS/producto.js"></script>
 </body>
 
 </html>

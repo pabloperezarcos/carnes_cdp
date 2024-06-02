@@ -1,0 +1,34 @@
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    margin-top: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-text {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #ff6b6b;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #e55b5b;
+}
+
+#cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

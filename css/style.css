@@ -1,4 +1,4 @@
-/* General Styles */
+/* Estilos generales */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -11,31 +11,24 @@ body {
 a {
     text-decoration: none;
     color: #800000;
-    /* Color burdeos */
 }
 
 .navbar {
     background-color: #fff;
-    /* Fondo blanco para la barra de navegación */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    box-shadow: none;
-    /* Eliminamos la sombra */
-    border-bottom: 2px solid #333;
-    /* Línea inferior para mayor separación */
+    box-shadow: none; /* Eliminamos la sombra */
+    border-bottom:2px solid #333;
     margin-bottom: 0;
-    /* Eliminamos el margen */
 }
 
 .navbar-brand,
 .nav-link {
     color: #800000 !important;
-    /* Color burdeos para el texto */
     font-weight: bold;
-    /* Texto en negrita */
 }
 
 .navbar-toggler-icon {
@@ -43,16 +36,14 @@ a {
 }
 
 .jumbotron {
-    background: url('../ASSETS/presentacion.jpg') no-repeat center center;
+    background: url('../assets/presentacion.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     padding: 6rem 2rem;
     text-align: center;
     position: relative;
     margin-top: 2px;
-    /* Altura de la navbar + algo de espacio adicional */
     margin-bottom: 0;
-    /* Eliminamos el margen inferior */
 }
 
 .jumbotron::after {
@@ -63,7 +54,6 @@ a {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro semi-transparente */
 }
 
 .jumbotron h1,
@@ -71,11 +61,10 @@ a {
     position: relative;
     z-index: 1;
     color: white;
-    /* Aseguramos que el texto sea blanco */
 }
 
 .jumbotron .btn-primary {
-    background-color: #ff6b6b;
+    background-color: #800000;
     border: none;
     position: relative;
     z-index: 1;
@@ -83,7 +72,6 @@ a {
 
 .hero-logo {
     height: 350px;
-    /* Tamaño aumentado para el logo */
     margin-bottom: 20px;
     z-index: 1;
     position: relative;
@@ -111,7 +99,6 @@ a {
 
 .card-title {
     font-size: 1.5rem;
-    /* Aumentamos el tamaño de la fuente */
     color: #333;
 }
 
@@ -140,8 +127,7 @@ footer {
 
 footer h5,
 footer p {
-    color: #ab0606;
-    /* Cambiamos el color a un tono más oscuro */
+    color: #800000;
 }
 
 footer h5 {
@@ -152,15 +138,63 @@ footer p {
     margin: 0;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
+/* Para pantallas de menos de 992px (Tablets) */
+@media (max-width: 992px) {
     .jumbotron {
         padding: 4rem 1rem;
     }
+
+    .hero-logo {
+        height: 150px;
+    }
+
+    .navbar {
+        border-bottom: 1px solid #333;
+    }
 }
 
-@media (max-width: 576px) {
+/* Para pantallas de menos de 768px (Teléfonos grandes o tablets pequeñas) */
+@media (max-width: 768px) {
     .jumbotron {
         padding: 3rem 1rem;
+    }
+
+    .hero-logo {
+        height: 100px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Para pantallas de menos de 576px (Teléfonos pequeños) */
+@media (max-width: 576px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+
+    .hero-logo {
+        height: 80px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.3rem 0;
     }
 }
