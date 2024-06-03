@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Usuarios - Carnes CDP</title>
-    <link rel="icon" href="../ASSETS/logo.png" type="image/png">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/manage-users.css">
+    <link rel="icon" href="../assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/manage-users.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -61,7 +61,10 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Nombre de Usuario</th>
                     <th>Email</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Dirección</th>
                     <th>Rol</th>
                     <th>Acciones</th>
                 </tr>
@@ -89,12 +92,24 @@
                             <input type="text" class="form-control" id="user-name" required>
                         </div>
                         <div class="form-group">
+                            <label for="user-username">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="user-username" required>
+                        </div>
+                        <div class="form-group">
                             <label for="user-email">Email</label>
                             <input type="email" class="form-control" id="user-email" required>
                         </div>
                         <div class="form-group">
                             <label for="user-password">Contraseña</label>
                             <input type="password" class="form-control" id="user-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-birthdate">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="user-birthdate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-address">Dirección</label>
+                            <input type="text" class="form-control" id="user-address" required>
                         </div>
                         <div class="form-group">
                             <label for="user-role">Rol</label>
@@ -119,9 +134,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../JS/scripts.js"></script>
-    <script src="../JS/loadfooter.js"></script>
-    <script src="../JS/manage-users.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/loadfooter.js"></script>
+    <script src="../js/manage-users.js"></script>
     <script src="../js/admin.js"></script>
 </body>
 
