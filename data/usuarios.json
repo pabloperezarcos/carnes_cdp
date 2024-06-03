@@ -13,6 +13,69 @@
             "email": "pablo.perez@carnescdp.cl",
             "password": "#Adm456#",
             "rol": "admin"
+        },
+        {
+            "id": 3,
+            "nombre": "Martina López",
+            "email": "martina.lopez@gmail.com",
+            "password": "M4rt!na8",
+            "rol": "cliente"
+        },
+        {
+            "id": 4,
+            "nombre": "Sebastián Rojas",
+            "email": "sebastian.rojas@gmail.com",
+            "password": "Seb4$123",
+            "rol": "cliente"
+        },
+        {
+            "id": 5,
+            "nombre": "Isidora Gómez",
+            "email": "isidora.gomez@gmail.com",
+            "password": "I$!dora9",
+            "rol": "cliente"
+        },
+        {
+            "id": 6,
+            "nombre": "Matías Torres",
+            "email": "matias.torres@gmail.com",
+            "password": "Mati4s#7",
+            "rol": "cliente"
+        },
+        {
+            "id": 7,
+            "nombre": "Catalina Fernández",
+            "email": "catalina.fernandez@gmail.com",
+            "password": "C4tal!na",
+            "rol": "cliente"
+        },
+        {
+            "id": 8,
+            "nombre": "Joaquín Castillo",
+            "email": "joaquin.castillo@gmail.com",
+            "password": "Joaq#123",
+            "rol": "cliente"
+        },
+        {
+            "id": 9,
+            "nombre": "Francisca Reyes",
+            "email": "francisca.reyes@gmail.com",
+            "password": "Fr@n1234",
+            "rol": "cliente"
+        },
+        {
+            "id": 10,
+            "nombre": "Vicente Martínez",
+            "email": "vicente.martinez@carnescdp.cl",
+            "password": "V1cent#8",
+            "rol": "admin"
+        },
+        {
+            "id": 11,
+            "nombre": "Valentina Díaz",
+            "email": "valentina.diaz@carnescdp.cl",
+            "password": "Val3nt!na",
+            "rol": "admin"
         }
     ]
 }

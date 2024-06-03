@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const logoutButton = document.getElementById('logout');
-    logoutButton.addEventListener('click', function () {
-        sessionStorage.clear();
-        window.location.href = '/index.html';
-    });
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function () {
+            sessionStorage.clear();
+            window.location.href = '/index.html';
+        });
+    }
 });

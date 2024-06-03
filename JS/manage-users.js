@@ -6,10 +6,23 @@ document.addEventListener('DOMContentLoaded', function () {
     let editMode = false;
     let editUserId = null;
 
-    const fetchUsers = async () => {
-        const response = await fetch('/data/usuarios.json');
-        const data = await response.json();
-        renderUsers(data.usuarios);
+    // Cargar usuarios desde el archivo JSON a localStorage si no existen
+    const loadUsersFromJSON = () => {
+        if (!localStorage.getItem('usuarios')) {
+            fetch('../data/usuarios.json')
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('usuarios', JSON.stringify(data.usuarios));
+                    fetchUsers();
+                });
+        } else {
+            fetchUsers();
+        }
+    };
+
+    const fetchUsers = () => {
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        renderUsers(usuarios);
     };
 
     const renderUsers = (usuarios) => {
@@ -31,15 +44,48 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const addUser = (user) => {
-        // Lógica para agregar el usuario
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        usuarios.push(user);
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        fetchUsers();
     };
 
-    const editUser = (id) => {
-        // Lógica para editar el usuario
+    const updateUser = (updatedUser) => {
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const index = usuarios.findIndex(user => user.id === updatedUser.id);
+        if (index !== -1) {
+            usuarios[index] = updatedUser;
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            fetchUsers();
+        }
     };
 
     const deleteUser = (id) => {
-        // Lógica para eliminar el usuario
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const updatedUsers = usuarios.filter(user => user.id !== id);
+        localStorage.setItem('usuarios', JSON.stringify(updatedUsers));
+        fetchUsers();
+    };
+
+    window.editUser = (id) => {
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const user = usuarios.find(user => user.id === id);
+        if (user) {
+            editMode = true;
+            editUserId = id;
+            userModalLabel.textContent = 'Editar Usuario';
+            document.getElementById('user-name').value = user.nombre;
+            document.getElementById('user-email').value = user.email;
+            document.getElementById('user-password').value = user.password;
+            document.getElementById('user-role').value = user.rol;
+            userModal.show();
+        }
+    };
+
+    window.deleteUser = (id) => {
+        if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+            deleteUser(id);
+        }
     };
 
     userForm.addEventListener('submit', (event) => {
@@ -50,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const role = document.getElementById('user-role').value;
 
         if (editMode) {
-            // Lógica para actualizar el usuario
+            const updatedUser = { id: editUserId, nombre: name, email: email, password: password, rol: role };
+            updateUser(updatedUser);
         } else {
             const newUser = { id: Date.now(), nombre: name, email: email, password: password, rol: role };
             addUser(newUser);
@@ -60,13 +107,5 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchUsers();
     });
 
-    fetchUsers();
+    loadUsersFromJSON();
 });
-
-function editUser(id) {
-    // Lógica para obtener y mostrar los datos del usuario en el formulario
-}
-
-function deleteUser(id) {
-    // Lógica para eliminar el usuario
-}
