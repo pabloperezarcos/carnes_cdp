@@ -26,16 +26,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item auth-only">
                     <a class="nav-link" href="pages/login.html">Iniciar Sesión</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item auth-only">
                     <a class="nav-link" href="pages/register.html">Registrarse</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/pages/carrito.html">
                         <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
                     </a>
+                </li>
+                <li class="nav-item admin-only">
+                    <a class="nav-link" href="/pages/admin.html">Administrar</a>
+                </li>
+                <li class="nav-item user-only">
+                    <a class="nav-link" href="#" id="logout-btn">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
@@ -58,7 +64,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card lift-on-hover">
                     <div class="badge-overlay"><span class="badge badge-sale">OFERTA</span></div>
-                    <img src="../assets/productos/Lomo vetado porcionado.png" class="card-img-top"
+                    <img src="assets/productos/Lomo vetado porcionado.png" class="card-img-top"
                         alt="prod_lomoVetadoPorc">
                     <div class="card-body">
                         <h5 class="card-title">Bife de lomo vetado</h5>
@@ -73,8 +79,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card lift-on-hover">
                     <div class="badge-overlay"><span class="badge badge-soldout">AGOTADO</span></div>
-                    <img src="../assets/productos/filete en medallon.png" class="card-img-top"
-                        alt="prod_fileteMedallon">
+                    <img src="assets/productos/filete en medallon.png" class="card-img-top" alt="prod_fileteMedallon">
                     <div class="card-body">
                         <h5 class="card-title">Filete en medallón</h5>
                         <p class="card-text">Descubre la joya culinaria de nuestro Filete en Medallón.</p>
@@ -86,7 +91,7 @@
             <!-- PRODUCTO 3 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card lift-on-hover">
-                    <img src="../assets/productos/Entrecot.png" class="card-img-top" alt="prod_entrecott">
+                    <img src="assets/productos/Entrecot.png" class="card-img-top" alt="prod_entrecott">
                     <div class="card-body">
                         <h5 class="card-title">Entrecott</h5>
                         <p class="card-text">Descubre la excelencia de nuestro Entrecot.</p>
@@ -95,11 +100,8 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-
 
     <!-- Footer -->
     <div id="footer-container"></div>
@@ -109,6 +111,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="JS/scripts.js"></script>
     <script src="JS/loadfooter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userRole = sessionStorage.getItem('userRole');
+            const userLoggedIn = sessionStorage.getItem('userLoggedIn') === 'true';
+
+            if (userRole !== 'admin') {
+                document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+            }
+
+            if (!userLoggedIn) {
+                document.querySelectorAll('.user-only').forEach(el => el.style.display = 'none');
+            } else {
+                document.querySelectorAll('.auth-only').forEach(el => el.style.display = 'none');
+            }
+
+            document.getElementById('logout-btn').addEventListener('click', function () {
+                sessionStorage.removeItem('userLoggedIn');
+                sessionStorage.removeItem('userRole');
+                window.location.href = '/index.html';
+            });
+        });
+    </script>
 </body>
 
 </html>
