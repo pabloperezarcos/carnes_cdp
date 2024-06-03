@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrecott - Carnes CDP</title>
-    <link rel="icon" href="../../ASSETS/logo.png" type="image/png">
-    <link rel="stylesheet" href="../../CSS/style.css">
-    <link rel="stylesheet" href="../../CSS/footer.css">
+    <link rel="icon" href="/assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/productos.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">
-            <img src="../../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+        <a class="navbar-brand" href="/index.html">
+            <img src="/assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
                 style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
@@ -43,7 +44,7 @@
     <!-- Hero Section -->
     <div class="jumbotron text-center">
         <h1 class="display-4">Entrecott</h1>
-        <p class="lead">Descubre la excelencia de nuestro Entrecott.</p>
+        <p class="lead">Descubre la excelencia de nuestro Entrecot.</p>
     </div>
 
     <!-- Breadcrumbs -->
@@ -55,20 +56,124 @@
         </ol>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Detalle del Producto -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
-                <img src="../../assets/productos/Entrecot.png" class="img-fluid" alt="Entrecott">
+            <div class="col-md-6">
+                <img src="/assets/productos/Entrecot.png" class="img-fluid" alt="Entrecott">
             </div>
-            <div class="col-lg-6 col-md-12 mb-4">
+            <div class="col-md-6">
                 <h2>Entrecott</h2>
-                <p>Descubre la excelencia de nuestro Entrecott, un corte premium que ofrece marmoleado exquisito,
-                    infiltración de grasa y una experiencia culinaria inigualable. ¡Perfecto para parrillas y asados!
-                </p>
-                <p class="price">$16.890 / 1 kilo</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <p>SKU: EC001547</p>
+                <p class="price-tag">Precio: <span id="product-price">$16.890</span> / 1 kilo</p>
+                <p>Descubre la excelencia de nuestro Entrecot, un corte premium que ofrece marmoleado exquisito,
+                    infiltración de grasa y una experiencia culinaria inigualable.</p>
+                <div class="form-group">
+                    <label for="quantity">Cantidad:</label>
+                    <input type="number" id="quantity" class="form-control" value="1" min="1">
+                </div>
+                <button class="btn btn-primary" id="add-to-cart-btn">Agregar al Carrito</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Productos Relacionados -->
+    <div class="container mt-5">
+        <h3 class="text-center">Productos Relacionados</h3>
+        <div id="related-products-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/filete en medallon.png" class="card-img-top"
+                                    alt="Filete en Medallón">
+                                <div class="card-body">
+                                    <h5 class="card-title">Filete en Medallón</h5>
+                                    <p class="card-text">Descubre la joya culinaria de nuestro Filete en Medallón,
+                                        extraído del
+                                        centro del filete sin el cordón ni la oreja.</p>
+                                    <a href="filetemedallon.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/Lomo vetado porcionado.png" class="card-img-top"
+                                    alt="Bife de Lomo Vetado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bife de Lomo Vetado</h5>
+                                    <p class="card-text">Experimenta la comodidad y exquisitez con nuestro Lomo Vetado
+                                        Porcionado.</p>
+                                    <a href="bifelomovetado.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/abastero.png" class="card-img-top" alt="Abastero">
+                                <div class="card-body">
+                                    <h5 class="card-title">Abastero</h5>
+                                    <p class="card-text">El corte de abastero es perfecto para guisos y estofados,
+                                        aportando un
+                                        sabor profundo y una textura tierna cuando se cocina a fuego lento.</p>
+                                    <a href="abastero.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/Asado de tira porcionado.png" class="card-img-top"
+                                    alt="Asado de Tira Porcionado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Asado de Tira Porcionado</h5>
+                                    <p class="card-text">Disfruta de la jugosidad y sabor de nuestro asado de tira
+                                        porcionado, ideal
+                                        para la parrilla y reuniones familiares.</p>
+                                    <a href="asadotiraporc.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/churrasco posta rosada.png" class="card-img-top"
+                                    alt="Churrasco Posta Rosada">
+                                <div class="card-body">
+                                    <h5 class="card-title">Churrasco Posta Rosada</h5>
+                                    <p class="card-text">Nuestro churrasco de posta rosada es ideal para sándwiches y
+                                        platos rápidos,
+                                        con un sabor excepcional y una textura tierna.</p>
+                                    <a href="churrascoposta.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/corazon.png" class="card-img-top" alt="Corazón de Vacuno">
+                                <div class="card-body">
+                                    <h5 class="card-title">Corazón de Vacuno</h5>
+                                    <p class="card-text">El corazón de vacuno es un corte lleno de sabor, ideal para
+                                        preparar a la
+                                        parrilla o en guisos tradicionales.</p>
+                                    <a href="corazon.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#related-products-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#related-products-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
         </div>
     </div>
 
@@ -78,8 +183,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../JS/scripts.js"></script>
-    <script src="../../JS/loadFooter.js"></script>
+    <script src="/JS/scripts.js"></script>
+    <script src="/JS/loadfooter.js"></script>
+    <script src="/JS/producto.js"></script>
 </body>
 
 </html>

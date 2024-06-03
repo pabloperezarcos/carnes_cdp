@@ -8,6 +8,7 @@
     <link rel="icon" href="/assets/logo.png" type="image/png">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/productos.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -26,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    <a class="nav-link" href="../login.html">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.html">Registrarse</a>
+                    <a class="nav-link" href="../register.html">Registrarse</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/pages/carrito.html">
@@ -64,7 +65,7 @@
             <div class="col-md-6">
                 <h2>Bife de Lomo Vetado</h2>
                 <p>SKU: VA001523</p>
-                <p>Precio: <span id="product-price">$12.480</span> / 1 kilo</p>
+                <p class="price-tag">Precio: <span id="product-price">$12.480</span> / 1 kilo</p>
                 <p>Experimenta la comodidad y exquisitez con nuestro Lomo Vetado Porcionado. Con terneza incomparable y
                     veteado de grasa, este corte ofrece practicidad y versatilidad gourmet en cada porción.</p>
                 <div class="form-group">
@@ -73,6 +74,106 @@
                 </div>
                 <button class="btn btn-primary" id="add-to-cart-btn">Agregar al Carrito</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Productos Relacionados -->
+    <div class="container mt-5">
+        <h3 class="text-center">Productos Relacionados</h3>
+        <div id="related-products-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/filete en medallon.png" class="card-img-top"
+                                    alt="Filete en Medallón">
+                                <div class="card-body">
+                                    <h5 class="card-title">Filete en Medallón</h5>
+                                    <p class="card-text">Descubre la joya culinaria de nuestro Filete en Medallón,
+                                        extraído del
+                                        centro del filete sin el cordón ni la oreja.</p>
+                                    <a href="filetemedallon.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/Entrecot.png" class="card-img-top" alt="Entrecott">
+                                <div class="card-body">
+                                    <h5 class="card-title">Entrecott</h5>
+                                    <p class="card-text">Descubre la excelencia de nuestro Entrecot, un corte premium
+                                        que ofrece
+                                        marmoleado exquisito, infiltración de grasa y una experiencia culinaria
+                                        inigualable.</p>
+                                    <a href="entrecott.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/abastero.png" class="card-img-top" alt="Abastero">
+                                <div class="card-body">
+                                    <h5 class="card-title">Abastero</h5>
+                                    <p class="card-text">El corte de abastero es perfecto para guisos y estofados,
+                                        aportando un
+                                        sabor profundo y una textura tierna cuando se cocina a fuego lento.</p>
+                                    <a href="abastero.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/churrasco posta rosada.png" class="card-img-top"
+                                    alt="Churrasco Posta Rosada">
+                                <div class="card-body">
+                                    <h5 class="card-title">Churrasco Posta Rosada</h5>
+                                    <p class="card-text">Nuestro churrasco de posta rosada es ideal para sándwiches y
+                                        platos rápidos,
+                                        con un sabor excepcional y una textura tierna.</p>
+                                    <a href="churrascoposta.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/corazon.png" class="card-img-top" alt="Corazón de Vacuno">
+                                <div class="card-body">
+                                    <h5 class="card-title">Corazón de Vacuno</h5>
+                                    <p class="card-text">El corazón de vacuno es un corte lleno de sabor, ideal para
+                                        preparar a la
+                                        parrilla o en guisos tradicionales.</p>
+                                    <a href="corazon.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/assets/productos/huesos carnudos.png" class="card-img-top"
+                                    alt="Huesos Carnudos">
+                                <div class="card-body">
+                                    <h5 class="card-title">Huesos Carnudos</h5>
+                                    <p class="card-text">Perfectos para caldos y sopas, nuestros huesos carnudos aportan
+                                        un sabor profundo y nutritivo a tus preparaciones.</p>
+                                    <a href="huesoscarnudos.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#related-products-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#related-products-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
         </div>
     </div>
 

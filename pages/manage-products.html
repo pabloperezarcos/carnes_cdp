@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Productos - Carnes CDP</title>
+    <link rel="icon" href="../assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/manage-products.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+                style="height: 40px; margin-right: 10px;">
+            Carnes CDP
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/carrito.html">
+                        <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Gestionar Productos</h1>
+        <p class="lead">Administra los productos disponibles en la plataforma.</p>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/pages/admin.html">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Gestionar Productos</li>
+        </ol>
+    </nav>
+
+    <!-- Tabla de Productos -->
+    <div class="container">
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#productModal">Agregar Producto</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="products-table">
+                <!-- Aquí se mostrarán los productos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para agregar/editar producto -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Agregar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <div class="form-group">
+                            <label for="product-name">Nombre</label>
+                            <input type="text" class="form-control" id="product-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Descripción</label>
+                            <textarea class="form-control" id="product-description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Precio</label>
+                            <input type="number" class="form-control" id="product-price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Imagen (URL)</label>
+                            <input type="text" class="form-control" id="product-image" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Categoría</label>
+                            <input type="text" class="form-control" id="product-category" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/loadfooter.js"></script>
+    <script src="../js/manage-products.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
