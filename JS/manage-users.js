@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
             row.innerHTML = `
                 <td>${user.id}</td>
                 <td>${user.nombre}</td>
+                <td>${user.username}</td>
                 <td>${user.email}</td>
+                <td>${user.birthdate}</td>
+                <td>${user.address}</td>
                 <td>${user.rol}</td>
                 <td>
                     <button class="btn btn-sm btn-warning" onclick="editUser(${user.id})">Editar</button>
@@ -75,8 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
             editUserId = id;
             userModalLabel.textContent = 'Editar Usuario';
             document.getElementById('user-name').value = user.nombre;
+            document.getElementById('user-username').value = user.username;
             document.getElementById('user-email').value = user.email;
             document.getElementById('user-password').value = user.password;
+            document.getElementById('user-birthdate').value = user.birthdate;
+            document.getElementById('user-address').value = user.address;
             document.getElementById('user-role').value = user.rol;
             userModal.show();
         }
@@ -91,15 +97,18 @@ document.addEventListener('DOMContentLoaded', function () {
     userForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const name = document.getElementById('user-name').value;
+        const username = document.getElementById('user-username').value;
         const email = document.getElementById('user-email').value;
         const password = document.getElementById('user-password').value;
+        const birthdate = document.getElementById('user-birthdate').value;
+        const address = document.getElementById('user-address').value;
         const role = document.getElementById('user-role').value;
 
         if (editMode) {
-            const updatedUser = { id: editUserId, nombre: name, email: email, password: password, rol: role };
+            const updatedUser = { id: editUserId, nombre: name, username: username, email: email, password: password, birthdate: birthdate, address: address, rol: role };
             updateUser(updatedUser);
         } else {
-            const newUser = { id: Date.now(), nombre: name, email: email, password: password, rol: role };
+            const newUser = { id: Date.now(), nombre: name, username: username, email: email, password: password, birthdate: birthdate, address: address, rol: role };
             addUser(newUser);
         }
 

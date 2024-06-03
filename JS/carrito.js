@@ -16,17 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderCartItems() {
         cartItemsContainer.innerHTML = '';
         cartItems.forEach((item, index) => {
+            console.log('Imagen del producto:', item.image); // Para verificar la ruta de la imagen
             const cartItem = document.createElement('div');
             cartItem.classList.add('list-group-item');
             cartItem.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <h5>${item.name}</h5>
-                        <p>${formatCurrency(item.price)} x 
-                        <input type="number" value="${item.quantity}" min="1" class="form-control quantity-input" data-index="${index}">
-                        </p>
+                        <p>${formatCurrency(item.price)} x ${item.quantity}</p>
                     </div>
                     <div>
+                        <input type="number" class="form-control" value="${item.quantity}" min="1" style="width: 60px; display: inline-block; margin-right: 10px;" onchange="updateQuantity(${index}, this.value)">
                         <button class="btn btn-sm btn-danger" onclick="removeCartItem(${index})">Eliminar</button>
                     </div>
                 </div>
@@ -44,16 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.removeCartItem = removeCartItem;
 
-    cartItemsContainer.addEventListener('change', function (e) {
-        if (e.target.classList.contains('quantity-input')) {
-            const index = e.target.getAttribute('data-index');
-            const newQuantity = parseInt(e.target.value);
-            cartItems[index].quantity = newQuantity;
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            renderCartItems();
-            updateCartTotal();
-        }
-    });
+    window.updateQuantity = function (index, quantity) {
+        cartItems[index].quantity = parseInt(quantity);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCartItems();
+        updateCartTotal();
+    };
 
     checkoutBtn.addEventListener('click', function () {
         alert('Procediendo al pago...');

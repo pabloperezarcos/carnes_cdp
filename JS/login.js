@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (user) {
                     sessionStorage.setItem('userLoggedIn', 'true');
                     sessionStorage.setItem('userRole', user.rol);
-                    window.location.href = '/index.html';
+                    window.location.href = '/pages/admin.html';
                 } else {
                     alert('Credenciales incorrectas');
                 }

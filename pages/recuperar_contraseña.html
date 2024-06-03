@@ -8,7 +8,7 @@
     <link rel="icon" href="../ASSETS/logo.png" type="image/png">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/recuperar_contraseña.css">
+    <link rel="stylesheet" href="../CSS/recuperar.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form id="recuperarContraseñaForm" onsubmit="return validateRecuperarContraseñaForm()">
+                <form id="recoverForm" onsubmit="return handleRecoverPassword()">
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico"
@@ -73,7 +73,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../JS/scripts.js"></script>
     <script src="../JS/loadfooter.js"></script>
-    <script src="../JS/validations.js"></script>
+    <script src="../JS/recover.js"></script>
 </body>
 
 </html>
