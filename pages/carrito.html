@@ -5,25 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras - Carnes CDP</title>
+    <!-- Icono de la pestaña del navegador -->
     <link rel="icon" href="../ASSETS/logo.png" type="image/png">
+    <!-- CSS - hojas de estilo para la página -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/carrito.css">
+    <!-- Bootstrap para estilos y componentes listos para usar -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- Barra de navegación con enlaces y funcionalidades -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Logotipo y enlace a la página de inicio -->
         <a class="navbar-brand" href="../index.html">
             <img src="../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
                 style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
+        <!-- Botón para colapsar y expandir el menú en dispositivos móviles -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Contenedor de elementos de navegación, ajustable a la pantalla -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -41,32 +47,34 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Sección principal del carrito de compras -->
     <div class="jumbotron text-center">
         <h1 class="display-4">Carrito de Compras</h1>
         <p class="lead">Revisa tus productos antes de proceder al pago.</p>
     </div>
 
-    <!-- Breadcrumbs -->
+    <!-- Breadcrumbs para indicar la navegación actual -->
     <nav aria-label="breadcrumb" class="container mt-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="../pages/productos.html">Productos</a></li>
+            <li class="breadcrumb-item"><a href="../pages/catalogo.html">Productos</a></li>
             <li class="breadcrumb-item active" aria-current="page">Carrito de compras</li>
         </ol>
     </nav>
 
-    <!-- Carrito de Compras -->
+    <!-- Contenido del carrito de compras y resumen -->
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <h3>Tu Carrito</h3>
+                <!-- Lista de productos agregados al carrito -->
                 <div id="cart-items" class="list-group">
-                    <!-- Aquí se mostrarán los productos del carrito -->
+                    <!-- Productos dinámicos se cargarán aquí -->
                 </div>
             </div>
             <div class="col-md-4">
                 <h3>Resumen de la Compra</h3>
+                <!-- Tarjeta de resumen con total y botón de pago -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total:</h5>
@@ -78,9 +86,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <div id="footer-container"></div>
 
+    <!-- Scripts para funcionalidades interactivas y Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

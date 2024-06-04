@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carnes CDP</title>
+    <!-- Icono de la pestaña del navegador -->
     <link rel="icon" href="assets/logo.png" type="image/png">
+    <!-- CSS - Hojas de estilo para la aplicación -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body onload="fadeInFooter()">
-    <!-- Navbar -->
+    <!-- Barra de navegación superior -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Logo y nombre de la empresa -->
         <a class="navbar-brand" href="#">
-            <img src="assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
-                style="height: 40px; margin-right: 10px;">
+            <img src="assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover" style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
+        <!-- Botón para menú en dispositivos móviles -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Elementos del menú -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item auth-only">
@@ -33,12 +37,12 @@
                     <a class="nav-link" href="pages/register.html">Registrarse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pages/carrito.html">
-                        <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
+                    <a class="nav-link" href="pages/carrito.html">
+                        <img src="assets/carrito.png" alt="Carrito" style="height: 30px;">
                     </a>
                 </li>
                 <li class="nav-item admin-only">
-                    <a class="nav-link" href="/pages/admin.html">Administrar</a>
+                    <a class="nav-link" href="pages/admin.html">Administrar</a>
                 </li>
                 <li class="nav-item user-only">
                     <a class="nav-link" href="#" id="logout-btn">Cerrar Sesión</a>
@@ -47,92 +51,32 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Sección principal 'Hero Section' con imagen destacada y llamado a la acción -->
     <div class="jumbotron text-center">
         <img src="assets/logo.png" alt="Carnes CDP" class="hero-logo">
         <h1 class="display-4">Bienvenidos a Carnes CDP</h1>
         <p class="lead">Las mejores carnes al mejor precio.</p>
         <hr class="my-4">
         <p>Explora nuestras ofertas y productos frescos.</p>
-        <a class="btn btn-primary btn-lg pulse-on-hover" href="pages/productos.html" role="button">Ver Productos</a>
+        <a class="btn btn-primary btn-lg pulse-on-hover" href="pages/catalogo.html" role="button">Ver Todos los Productos</a>
     </div>
 
-    <!-- Main Content -->
+    <!-- Contenido principal: Lista de productos -->
     <div class="container">
-        <div class="row">
-            <!-- PRODUCTO 1 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card lift-on-hover">
-                    <div class="badge-overlay"><span class="badge badge-sale">OFERTA</span></div>
-                    <img src="assets/productos/Lomo vetado porcionado.png" class="card-img-top"
-                        alt="prod_lomoVetadoPorc">
-                    <div class="card-body">
-                        <h5 class="card-title">Bife de lomo vetado</h5>
-                        <p class="card-text">Experimenta la comodidad y exquisitez con nuestro Lomo Vetado Porcionado.
-                        </p>
-                        <p class="price">$12.480 / 1 kilo</p>
-                        <a href="/pages/productos/bifelomovetado.html" class="btn btn-primary">Ver Producto</a>
-                    </div>
-                </div>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card lift-on-hover">
-                    <div class="badge-overlay"><span class="badge badge-soldout">AGOTADO</span></div>
-                    <img src="assets/productos/filete en medallon.png" class="card-img-top" alt="prod_fileteMedallon">
-                    <div class="card-body">
-                        <h5 class="card-title">Filete en medallón</h5>
-                        <p class="card-text">Descubre la joya culinaria de nuestro Filete en Medallón.</p>
-                        <p class="price">$17.490 / 1 kilo</p>
-                        <a href="/pages/productos/filetemedallon.html" class="btn btn-primary">Ver Producto</a>
-                    </div>
-                </div>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card lift-on-hover">
-                    <img src="assets/productos/Entrecot.png" class="card-img-top" alt="prod_entrecott">
-                    <div class="card-body">
-                        <h5 class="card-title">Entrecott</h5>
-                        <p class="card-text">Descubre la excelencia de nuestro Entrecot.</p>
-                        <p class="price">$16.890 / 1 kilo</p>
-                        <a href="/pages/productos/entrecott.html" class="btn btn-primary">Ver Producto</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row" id="product-list">
+            <!-- Aquí se cargarán algunos productos dinámicamente -->
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Pie de página, se cargará dinámicamente -->
     <div id="footer-container"></div>
 
+    <!-- Scripts para funcionalidades interactivas y Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="JS/scripts.js"></script>
     <script src="JS/loadfooter.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const userRole = sessionStorage.getItem('userRole');
-            const userLoggedIn = sessionStorage.getItem('userLoggedIn') === 'true';
-
-            if (userRole !== 'admin') {
-                document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
-            }
-
-            if (!userLoggedIn) {
-                document.querySelectorAll('.user-only').forEach(el => el.style.display = 'none');
-            } else {
-                document.querySelectorAll('.auth-only').forEach(el => el.style.display = 'none');
-            }
-
-            document.getElementById('logout-btn').addEventListener('click', function () {
-                sessionStorage.removeItem('userLoggedIn');
-                sessionStorage.removeItem('userRole');
-                window.location.href = '/index.html';
-            });
-        });
-    </script>
+    <script src="JS/index.js"></script>
 </body>
-
 </html>
