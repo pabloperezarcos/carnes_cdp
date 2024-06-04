@@ -43,7 +43,7 @@ function validateRegisterForm() {
     // Calcula la edad del usuario a partir de la fecha de nacimiento
     const birthdateObj = new Date(birthdate);
     const today = new Date();
-    const age = today.getFullYear() - birthdateObj.getFullYear();
+    let age = today.getFullYear() - birthdateObj.getFullYear();
     const monthDiff = today.getMonth() - birthdateObj.getMonth();
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdateObj.getDate())) {
         age--;
@@ -55,9 +55,9 @@ function validateRegisterForm() {
         return false;
     }
 
-    alert("Registro exitoso!");
     return true;
 }
+
 
 // Validación del formulario de inicio de sesión
 function validateLoginForm() {

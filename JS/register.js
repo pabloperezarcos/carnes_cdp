@@ -1,42 +1,37 @@
-document.getElementById('registerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Previene el envío del formulario por defecto
+document.addEventListener('DOMContentLoaded', function () {
+    const registerForm = document.getElementById('registerForm');
 
-    // Llama a la función de validación y procede solo si devuelve true
-    if (!validateRegisterForm()) {
-        return; // Detiene la función aquí si la validación falla
-    }
+    registerForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Previene el envío del formulario por defecto
 
-    // Si la validación es exitosa, obtiene los valores de los campos del formulario
-    const fullName = document.getElementById('fullName').value.trim();
-    const username = document.getElementById('username').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const confirmPassword = document.getElementById('confirmPassword').value.trim();
-    const birthdate = document.getElementById('birthdate').value.trim();
-    const address = document.getElementById('address').value.trim();
+        if (validateRegisterForm()) {
+            const fullName = document.getElementById('fullName').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const birthdate = document.getElementById('birthdate').value.trim();
+            const address = document.getElementById('address').value.trim();
 
-    // Crear nuevo usuario
-    const newUser = {
-        id: Date.now(), // Genera un ID único basado en la fecha y hora actual
-        nombre: fullName,
-        email: email,
-        password: password,
-        rol: 'cliente', // Asigna el rol por defecto como 'cliente'
-        username: username,
-        birthdate: birthdate,
-        address: address
-    };
+            const newUser = {
+                id: Date.now(),
+                nombre: fullName,
+                username: username,
+                email: email,
+                password: password,
+                rol: 'cliente',
+                birthdate: birthdate,
+                address: address
+            };
 
-    // Obtener usuarios existentes del localStorage
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(newUser);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    // Agregar nuevo usuario a la lista de usuarios
-    usuarios.push(newUser);
+            alert('Registro exitoso. Ahora puede iniciar sesión.');
 
-    // Guardar la lista actualizada de usuarios en el localStorage
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-    // Muestra una alerta de éxito y redirige al usuario a la página de inicio de sesión
-    alert('Registro exitoso. Ahora puede iniciar sesión.');
-    window.location.href = 'login.html';
+            setTimeout(function () {
+                window.location.href = 'login.html';
+            }, 2000); // Retrasa la redirección por 2 segundos
+        }
+    });
 });
