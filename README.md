@@ -12,6 +12,7 @@ Bienvenidos al sistema de gestión de Carnicería CDP. Este proyecto es una plat
 
 ## Estructura del Proyecto
 ├── index.html
+
 ├── pages
 │ ├── login.html
 │ ├── register.html
@@ -29,6 +30,7 @@ Bienvenidos al sistema de gestión de Carnicería CDP. Este proyecto es una plat
 │ ├── corazon.html
 │ ├── huesoscarnudos.html
 │ ├── postanegra.html
+
 ├── css
 │ ├── style.css
 │ ├── footer.css
@@ -36,6 +38,7 @@ Bienvenidos al sistema de gestión de Carnicería CDP. Este proyecto es una plat
 │ ├── carrito.css
 │ ├── login.css
 │ └── register.css
+
 ├── js
 │ ├── scripts.js
 │ ├── loadfooter.js
@@ -44,6 +47,7 @@ Bienvenidos al sistema de gestión de Carnicería CDP. Este proyecto es una plat
 │ ├── auth.js
 │ ├── manage_products.js
 │ └── manage_users.js
+
 ├── assets
 │ ├── logo.png
 │ ├── carrito.png
@@ -57,9 +61,11 @@ Bienvenidos al sistema de gestión de Carnicería CDP. Este proyecto es una plat
 │ ├── corazon.png
 │ ├── huesos carnudos.png
 │ ├── Posta negra.png
+
 ├── data
 │ ├── usuarios.json
 │ └── productos.json
+
 └── README.md
 
 
