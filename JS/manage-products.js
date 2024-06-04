@@ -1,10 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const productsTable = document.getElementById('products-table');
     const productForm = document.getElementById('productForm');
     const productModalLabel = document.getElementById('productModalLabel');
     const productModal = new bootstrap.Modal(document.getElementById('productModal'));
     let editMode = false;
     let editProductId = null;
+
+    const renderProducts = (products) => {
+        const productsTable = document.getElementById('products-table');
+        productsTable.innerHTML = '';
+        products.forEach(product => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${product.id}</td>
+                <td>${product.nombre}</td>
+                <td>${product.descripcionCorta}</td>
+                <td>${product.descripcion}</td>
+                <td>${product.precio}</td>
+                <td>${product.sku}</td>
+                <td>${product.estado || 'N/A'}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editProduct(${product.id})">Editar</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">Eliminar</button>
+                </td>
+            `;
+            productsTable.appendChild(row);
+        });
+    };
 
     const loadProductsFromJSON = () => {
         if (!localStorage.getItem('productos')) {
@@ -12,74 +33,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     localStorage.setItem('productos', JSON.stringify(data.productos));
-                    fetchProducts();
+                    renderProducts(data.productos);
                 });
         } else {
-            fetchProducts();
+            const products = JSON.parse(localStorage.getItem('productos'));
+            renderProducts(products);
         }
     };
 
-    const fetchProducts = () => {
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        renderProducts(productos);
-    };
-
-    const renderProducts = (productos) => {
-        productsTable.innerHTML = '';
-        productos.forEach(product => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${product.id}</td>
-                <td>${product.nombre}</td>
-                <td>${product.descripcion}</td>
-                <td>${product.precio}</td>
-                <td><img src="${product.imagen}" alt="${product.nombre}" style="height: 50px;"></td>
-                <td>${product.categoria}</td>
-                <td>
-                    <button class="btn btn-sm btn-warning" onclick="editProduct(${product.id})">Editar</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
-                </td>
-            `;
-            productsTable.appendChild(row);
-        });
-    };
-
     const addProduct = (product) => {
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        productos.push(product);
-        localStorage.setItem('productos', JSON.stringify(productos));
-        fetchProducts();
+        const products = JSON.parse(localStorage.getItem('productos')) || [];
+        products.push(product);
+        localStorage.setItem('productos', JSON.stringify(products));
+        renderProducts(products);
     };
 
     const updateProduct = (updatedProduct) => {
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        const index = productos.findIndex(product => product.id === updatedProduct.id);
+        const products = JSON.parse(localStorage.getItem('productos')) || [];
+        const index = products.findIndex(product => product.id === updatedProduct.id);
         if (index !== -1) {
-            productos[index] = updatedProduct;
-            localStorage.setItem('productos', JSON.stringify(productos));
-            fetchProducts();
+            products[index] = updatedProduct;
+            localStorage.setItem('productos', JSON.stringify(products));
+            renderProducts(products);
         }
     };
 
     const deleteProduct = (id) => {
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        const updatedProducts = productos.filter(product => product.id !== id);
+        const products = JSON.parse(localStorage.getItem('productos')) || [];
+        const updatedProducts = products.filter(product => product.id !== id);
         localStorage.setItem('productos', JSON.stringify(updatedProducts));
-        fetchProducts();
+        renderProducts(updatedProducts);
     };
 
     window.editProduct = (id) => {
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        const product = productos.find(product => product.id === id);
+        const products = JSON.parse(localStorage.getItem('productos')) || [];
+        const product = products.find(product => product.id === id);
         if (product) {
             editMode = true;
             editProductId = id;
             productModalLabel.textContent = 'Editar Producto';
             document.getElementById('product-name').value = product.nombre;
+            document.getElementById('product-description-corta').value = product.descripcionCorta;
             document.getElementById('product-description').value = product.descripcion;
             document.getElementById('product-price').value = product.precio;
-            document.getElementById('product-image').value = product.imagen;
-            document.getElementById('product-category').value = product.categoria;
+            document.getElementById('product-sku').value = product.sku;
+            document.getElementById('product-status').value = product.estado || 'N/A';
             productModal.show();
         }
     };
@@ -93,21 +91,26 @@ document.addEventListener('DOMContentLoaded', function () {
     productForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const name = document.getElementById('product-name').value;
-        const description = document.getElementById('product-description').value;
-        const price = parseFloat(document.getElementById('product-price').value);
-        const image = document.getElementById('product-image').value;
-        const category = document.getElementById('product-category').value;
+        const descripcionCorta = document.getElementById('product-description-corta').value;
+        const descripcion = document.getElementById('product-description').value;
+        const price = document.getElementById('product-price').value;
+        const sku = document.getElementById('product-sku').value;
+        const status = document.getElementById('product-status').value;
 
         if (editMode) {
-            const updatedProduct = { id: editProductId, nombre: name, descripcion: description, precio: price, imagen: image, categoria: category };
+            const updatedProduct = { id: editProductId, nombre: name, descripcionCorta: descripcionCorta, descripcion: descripcion, precio: price, sku: sku, estado: status };
             updateProduct(updatedProduct);
+            editMode = false;
+            editProductId = null;
         } else {
-            const newProduct = { id: Date.now(), nombre: name, descripcion: description, precio: price, imagen: image, categoria: category };
+            const newProduct = { id: Date.now(), nombre: name, descripcionCorta: descripcionCorta, descripcion: descripcion, precio: price, sku: sku, estado: status };
             addProduct(newProduct);
         }
 
         productModal.hide();
-        fetchProducts();
+        setTimeout(() => {
+            alert('Producto guardado con éxito.');
+        }, 500); // Timeout to ensure the modal closes properly
     });
 
     loadProductsFromJSON();

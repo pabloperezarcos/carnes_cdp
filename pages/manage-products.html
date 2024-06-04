@@ -5,79 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Productos - Carnes CDP</title>
-    <link rel="icon" href="../assets/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/manage-products.css">
+    <link rel="icon" href="../ASSETS/logo.png" type="image/png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/manage-products.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- Barra de navegación principal -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Logo de la empresa y enlace a la página de inicio -->
         <a class="navbar-brand" href="../index.html">
-            <img src="../assets/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
+            <img src="../ASSETS/logo.png" alt="Carnes CDP" id="navbar-logo" class="rotate-on-hover"
                 style="height: 40px; margin-right: 10px;">
             Carnes CDP
         </a>
+        <!-- Botón para expandir o colapsar la barra de navegación en dispositivos móviles -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Elementos del menú de navegación accesibles al colapsar en móviles -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Registrarse</a>
-                </li>
+                <!-- Enlace al carrito de compras -->
                 <li class="nav-item">
                     <a class="nav-link" href="/pages/carrito.html">
-                        <img src="/assets/carrito.png" alt="Carrito" style="height: 30px;">
+                        <img src="/ASSETS/carrito.png" alt="Carrito" style="height: 30px;">
                     </a>
+                </li>
+                <!-- Enlace para cerrar sesión -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Sección destacada para título y descripción de la página -->
     <div class="jumbotron text-center">
         <h1 class="display-4">Gestionar Productos</h1>
         <p class="lead">Administra los productos disponibles en la plataforma.</p>
     </div>
 
-    <!-- Breadcrumbs -->
+    <!-- Breadcrumbs para mejorar la navegación y entender la ubicación actual del usuario -->
     <nav aria-label="breadcrumb" class="container mt-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="/pages/admin.html">Admin</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="../pages/admin.html">Administrar</a></li>
             <li class="breadcrumb-item active" aria-current="page">Gestionar Productos</li>
         </ol>
     </nav>
 
-    <!-- Tabla de Productos -->
+    <!-- Área principal para gestión de productos -->
     <div class="container">
-        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#productModal">Agregar Producto</button>
+        <!-- Botón para agregar productos que activa un modal -->
+        <button class="btn btn-primary mb-3" id="add-product-btn" data-toggle="modal"
+            data-target="#productModal">Agregar Producto</button>
+        <!-- Tabla que muestra los productos existentes -->
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Descripción Corta</th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                    <th>Imagen</th>
-                    <th>Categoría</th>
+                    <th>SKU</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody id="products-table">
-                <!-- Aquí se mostrarán los productos -->
+                <!-- Las filas de productos se cargarán aquí dinámicamente -->
             </tbody>
         </table>
     </div>
 
-    <!-- Modal para agregar/editar producto -->
+    <!-- Modal para agregar o editar productos -->
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -87,45 +93,64 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="productForm">
+                <!-- Formulario dentro del modal para agregar o editar productos -->
+                <form id="productForm">
+                    <div class="modal-body">
+                        <!-- Campos para la información del producto -->
                         <div class="form-group">
                             <label for="product-name">Nombre</label>
                             <input type="text" class="form-control" id="product-name" required>
                         </div>
                         <div class="form-group">
+                            <label for="product-description-corta">Descripción Corta</label>
+                            <input type="text" class="form-control" id="product-description-corta" required>
+                        </div>
+                        <div class="form-group">
                             <label for="product-description">Descripción</label>
-                            <textarea class="form-control" id="product-description" rows="3" required></textarea>
+                            <textarea class="form-control" id="product-description" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="product-price">Precio</label>
-                            <input type="number" class="form-control" id="product-price" required>
+                            <input type="text" class="form-control" id="product-price" required>
                         </div>
                         <div class="form-group">
-                            <label for="product-image">Imagen (URL)</label>
-                            <input type="text" class="form-control" id="product-image" required>
+                            <label for="product-sku">SKU</label>
+                            <input type="text" class="form-control" id="product-sku" required>
                         </div>
                         <div class="form-group">
-                            <label for="product-category">Categoría</label>
-                            <input type="text" class="form-control" id="product-category" required>
+                            <label for="product-status">Estado</label>
+                            <select class="form-control" id="product-status" required>
+                                <option value="disponible">Disponible</option>
+                                <option value="oferta">Oferta</option>
+                                <option value="agotado">Agotado</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar Producto</button>
-                    </form>
-                </div>
+                    </div>
+                    <!-- Botones para guardar cambios o cerrar el modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Mensaje de confirmación de acción exitosa, oculto por defecto -->
+    <div id="success-message" class="alert alert-success d-none" role="alert">
+        Producto agregado/actualizado con éxito!
+    </div>
+
+    <!-- Pie de página  -->
     <div id="footer-container"></div>
 
+    <!-- Scripts necesarios para funcionalidad de Bootstrap y carga dinámica de elementos -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/scripts.js"></script>
-    <script src="../js/loadfooter.js"></script>
-    <script src="../js/manage-products.js"></script>
-    <script src="../js/admin.js"></script>
+    <script src="../JS/scripts.js"></script>
+    <script src="../JS/loadfooter.js"></script>
+    <script src="../JS/manage-products.js"></script>
 </body>
 
 </html>
