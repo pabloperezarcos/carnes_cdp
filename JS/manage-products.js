@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Obtiene el formulario de producto, la etiqueta del modal y crea una instancia del modal de Bootstrap
     const productForm = document.getElementById('productForm');
     const productModalLabel = document.getElementById('productModalLabel');
     const productModal = new bootstrap.Modal(document.getElementById('productModal'));
     let editMode = false;
     let editProductId = null;
 
+    // Función para renderizar productos en la tabla
     const renderProducts = (products) => {
         const productsTable = document.getElementById('products-table');
-        productsTable.innerHTML = '';
+        productsTable.innerHTML = ''; // Limpia el contenido previo de la tabla
         products.forEach(product => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -20,13 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${product.estado || 'N/A'}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" onclick="editProduct(${product.id})">Editar</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">Eliminar</button>
+                    <button class="btn btn-danger btn-sm" onclick="confirmDeleteProduct(${product.id})">Eliminar</button>
                 </td>
             `;
             productsTable.appendChild(row);
         });
     };
 
+    // Función para cargar productos desde un archivo JSON o localStorage
     const loadProductsFromJSON = () => {
         if (!localStorage.getItem('productos')) {
             fetch('../data/productos.json')
@@ -41,30 +44,44 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    const addProduct = (product) => {
-        const products = JSON.parse(localStorage.getItem('productos')) || [];
-        products.push(product);
+    // Función para guardar productos en localStorage y renderizarlos
+    const saveAndRenderProducts = (products) => {
         localStorage.setItem('productos', JSON.stringify(products));
         renderProducts(products);
     };
 
+    // Función para agregar un nuevo producto
+    const addProduct = (product) => {
+        const products = JSON.parse(localStorage.getItem('productos')) || [];
+        products.push(product);
+        saveAndRenderProducts(products);
+    };
+
+    // Función para actualizar un producto existente
     const updateProduct = (updatedProduct) => {
         const products = JSON.parse(localStorage.getItem('productos')) || [];
         const index = products.findIndex(product => product.id === updatedProduct.id);
         if (index !== -1) {
             products[index] = updatedProduct;
-            localStorage.setItem('productos', JSON.stringify(products));
-            renderProducts(products);
+            saveAndRenderProducts(products);
         }
     };
 
+    // Función para eliminar un producto
     const deleteProduct = (id) => {
         const products = JSON.parse(localStorage.getItem('productos')) || [];
         const updatedProducts = products.filter(product => product.id !== id);
-        localStorage.setItem('productos', JSON.stringify(updatedProducts));
-        renderProducts(updatedProducts);
+        saveAndRenderProducts(updatedProducts);
     };
 
+    // Función para confirmar la eliminación de un producto
+    window.confirmDeleteProduct = (id) => {
+        if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+            deleteProduct(id);
+        }
+    };
+
+    // Función para editar un producto
     window.editProduct = (id) => {
         const products = JSON.parse(localStorage.getItem('productos')) || [];
         const product = products.find(product => product.id === id);
@@ -82,12 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    window.deleteProduct = (id) => {
-        if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
-            deleteProduct(id);
-        }
-    };
-
+    // Maneja el envío del formulario de producto
     productForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const name = document.getElementById('product-name').value;
@@ -97,21 +109,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const sku = document.getElementById('product-sku').value;
         const status = document.getElementById('product-status').value;
 
+        const product = {
+            id: editMode ? editProductId : Date.now(),
+            nombre: name,
+            descripcionCorta: descripcionCorta,
+            descripcion: descripcion,
+            precio: price,
+            sku: sku,
+            estado: status
+        };
+
         if (editMode) {
-            const updatedProduct = { id: editProductId, nombre: name, descripcionCorta: descripcionCorta, descripcion: descripcion, precio: price, sku: sku, estado: status };
-            updateProduct(updatedProduct);
+            updateProduct(product);
             editMode = false;
             editProductId = null;
         } else {
-            const newProduct = { id: Date.now(), nombre: name, descripcionCorta: descripcionCorta, descripcion: descripcion, precio: price, sku: sku, estado: status };
-            addProduct(newProduct);
+            addProduct(product);
         }
 
         productModal.hide();
         setTimeout(() => {
             alert('Producto guardado con éxito.');
-        }, 500); // Timeout to ensure the modal closes properly
+        }, 500);
     });
 
+    // Cargar los productos desde JSON al cargar la página
     loadProductsFromJSON();
 });
