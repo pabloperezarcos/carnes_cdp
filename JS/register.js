@@ -1,22 +1,19 @@
 document.getElementById('registerForm').addEventListener('submit', function (event) {
-    // Previene el envío del formulario por defecto
-    event.preventDefault();
+    event.preventDefault(); // Previene el envío del formulario por defecto
 
-    // Obtiene los valores de los campos del formulario
-    const fullName = document.getElementById('fullName').value;
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const birthdate = document.getElementById('birthdate').value;
-    const address = document.getElementById('address').value;
-
-    // Validaciones
-    // Verifica si las contraseñas coinciden
-    if (password !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
-        return;
+    // Llama a la función de validación y procede solo si devuelve true
+    if (!validateRegisterForm()) {
+        return; // Detiene la función aquí si la validación falla
     }
+
+    // Si la validación es exitosa, obtiene los valores de los campos del formulario
+    const fullName = document.getElementById('fullName').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const confirmPassword = document.getElementById('confirmPassword').value.trim();
+    const birthdate = document.getElementById('birthdate').value.trim();
+    const address = document.getElementById('address').value.trim();
 
     // Crear nuevo usuario
     const newUser = {
